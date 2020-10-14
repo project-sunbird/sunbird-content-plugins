@@ -45,6 +45,14 @@
                                 rows="2" ng-click="generateTelemetry({id: 'unit-purpuse', type: 'click', subtype: 'textarea', target: 'purpose'})"></textarea>
                         </div>
                     </div>
+                    <div class="field" ng-class="mode == 'Edit' ? '' : 'disabled'">
+                        <label>Primary Category</label>
+                        <input name="primaryCategory" ng-class=" {error: submitted && unitMetaForm.primaryCategory.$error.required}" id="unitPrimaryCategorySelector" ng-model="unit.primaryCategory" type="text" ng-click="generateTelemetry({id: 'unit-PrimaryCategorySelector', type: 'click', subtype: 'input', target: 'primaryCategory'})">
+                    </div>
+                    <div class="field" ng-class="mode == 'Edit' ? '' : 'disabled'">
+                        <label>Additional Categories</label>
+                        <input name="additionalCatgories" id="unitAdditionalCategorySelector" ng-model="unit.additionalCatgories" type="text" ng-click="generateTelemetry({id: 'unit-additionalCategoriesSelector', type: 'click', subtype: 'input', target: 'additionalCatgories'})">
+                    </div>
                 </div>
             </div>
         </form>
@@ -89,6 +97,16 @@
                         <td class="one wide"><b>Purpose of Content to be linked</b></td>
                         <td class="">:</td>
                         <td class="eleven wide">{{unit.purpose || "--"}}</td>
+                    </tr>
+                    <tr class="top aligned">
+                        <td class="one wide"><b>Primary Category</b></td>
+                        <td class="">:</td>
+                        <td class="eleven wide">{{unit.primaryCategory || "--"}}</td>
+                    </tr>
+                    <tr class="top aligned">
+                        <td class="one wide"><b>Additional Categories</b></td>
+                        <td class="">:</td>
+                        <td class="eleven wide">{{unit.additionalCatgories || "--"}}</td>
                     </tr>
                 </tbody>
             </table>

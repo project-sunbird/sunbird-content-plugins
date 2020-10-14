@@ -83,6 +83,12 @@ angular.module('unitmetaApp', []).controller('unitmetaController', ['$scope', fu
         if (_.isUndefined(metadata['keywords'])) {
             metadata['keywords'] = currentMetadata['keywords'];
         }
+        if(_.isUndefined(metadata['primaryCategory'])) {
+            metadata['primaryCategory'] = currentMetadata['primaryCategory'];
+        }
+        if(_.isUndefined(metadata['additionalCatgories'])) {
+            metadata['additionalCatgories'] = currentMetadata['additionalCatgories'];
+        }
         return metadata;
     }
 
