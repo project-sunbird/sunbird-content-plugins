@@ -18,7 +18,7 @@
                 <label ng-if="contentDetails.contentTitle.length >= 52" class="content-title popup-item" data-content="{{contentDetails.contentTitle}}"
                     data-variation="wide" data-position="bottom left">{{contentDetails.contentTitle}}</label>
             </div>
-            <div class="row custom-row-2">
+            <div class="row custom-row-2" ng-show="showEditDetailsOption">
                 <a class="btn at-btn at-btn-ok" ng-click="editContentMeta();generateTelemetry({id:'button',subtype:'',target:'editmeta'})">
                     <span ng-if="showEditMeta"><i class="edit icon link"></i>&nbsp;Edit Details</span>
                     <span ng-if="!showEditMeta"><i class="eye icon link"></i>&nbsp;View Details </span>
@@ -123,7 +123,7 @@
                                 data-position="bottom center" ng-click="sendForReview(); generateTelemetry({ id:'reviewButton',subtype: 'review', target: 'reviewbutton'});">
                                 <i class="send icon"></i>
                             </div>
-                            <div class="ui pointing dropdown icon button">
+                            <div ng-show="hideLimitedSharingBtn" class="ui pointing dropdown icon button">
                                 <i class="dropdown icon"></i>
                                 <div class="menu">
                                     <div class="item" ng-click="limitedSharing(); generateTelemetry({ id:'button',subtype: 'limit-sharing', target:'limitedSharing'});"> Limited sharing</div>
@@ -159,7 +159,7 @@
                             <i class="fa fa-check"></i>
                             <span class="label-icon-box-text">Accept</span>
                         </div>
-                        <div ng-if="editorEnv == 'ECML'" class="ui buttons preview-dropdown">
+                        <div ng-if="editorEnv == 'ECML' && hidePreviewBtn " class="ui buttons preview-dropdown">
                             <div class="ui button text-part popup-item" data-content="Preview" data-variation="tiny inverted"
                                 data-position="bottom center" ng-click="previewContent();">
                                 <i class="fa fa-eye"></i>
